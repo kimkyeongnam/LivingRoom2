@@ -18,14 +18,18 @@ from django.urls import path
 
 import tempApp.views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', tempApp.views.index, name='index'),
     path('about/', tempApp.views.about, name='about'),
     path('login/', tempApp.views.login, name='login'),
+    path('logout/', tempApp.views.logout, name = 'logout'),
     path('signup/', tempApp.views.signup, name='signup'),
     path('mypage/', tempApp.views.mypage, name='mypage'),
     path('question/', tempApp.views.question, name='question'),
     path('solution/', tempApp.views.solution, name='solution'),
-
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

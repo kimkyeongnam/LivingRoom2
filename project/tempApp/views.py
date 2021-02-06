@@ -1,25 +1,91 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.contrib.auth.models import User
+from django.contrib import auth
+from .models import Member
+from .models import Question
+from .models import Solution
+
+import datetime
+from django.utils import timezone
 
 # Create your views here.
 
 
 def index(request):
-  return render(request, 'index.html')
+  questions=Question.objects
+  solutions=Solution.objects
+
+  now = timezone.now()
+  
+  quests=[]
+  i=0
+  for q in reversed(questions.all()):
+    if i==3: break
+    else:
+      if q.matching != None: i-=1
+      if len(q.title) >=25: q.title = q.title[:25]+"..."
+      q.pub_datetime=now-q.pub_datetime
+      quests.append(q)
+      i+=1
+
+  sols=[]
+  i=0 
+  for s in reversed(solutions.all()):
+    if i==3: break 
+    if len(s.title) >=23: s.title = s.title[:23]+"..."
+    sols.append(s)
+    i+=1 
+
+
+  return render(request, 'index.html', {'quests':quests, 'sols':sols})
 
 def about(request):
   return render(request, 'about.html')
 
 def login(request):
+  if request.method == 'POST':
+    username = request.POST.get('id','')
+    password = request.POST.get('pw','')
+    user = auth.authenticate(request, username=username, password=password)
+    if user is not None:
+      auth.login(request, user)
+      return redirect('index')
+    else:
+      return render(request, 'login.html', {'error': 'username or password is incorrect.'})
   return render(request, 'login.html')
 
 def signup(request):
+  if request.method == 'POST':
+    user = User.objects.create_user(request.POST['id'], password=request.POST['pw'])
+    auth.login(request, user)
+    myusers = Member()
+    myusers.username = request.POST.get('id','')
+    myusers.password = request.POST.get('pw','')
+    myusers.birthday = request.POST.get('birth','')
+    myusers.save()
+    return redirect('index')
   return render(request, 'signup.html')
+
+def logout(request):
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('index')
+    return render(request, 'index.html')
+
 
 def mypage(request):
   return render(request, 'mypage.html')
 
+
+
+
 def question(request):
-  return render(request, 'question.html')
+  questions=Question.objects
+  now = datetime.datetime.now()
+  return render(request, 'question.html', {'questions':questions})
 
 def solution(request):
-  return render(request, 'solution.html')
+  solutions=Solution.objects
+  return render(request, 'solution.html', {'solutions':solutions})
+
+
