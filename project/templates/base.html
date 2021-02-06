@@ -31,7 +31,6 @@
 
     <!------ Include the above in your HEAD tag ---------->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
   </head>
 
 
@@ -54,12 +53,28 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'solution' %}">Solution Board</a>
             </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:yellow">
+                Hello, {{user.get_username}} :)
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                <a class="dropdown-item" href="{% url 'mypage' %}">My Page</a>
+                <a class="dropdown-item" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+                <form id = "logout" method = "POST" action = "{% url 'logout' %}">
+                  {% csrf_token %}
+                  <input type = "hidden">
+                </form>
+              </div>
+            </li>
+            {% else %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'login' %}">Login</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
             </li>
+            {% endif %}
             <!--
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
