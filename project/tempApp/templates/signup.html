@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}-signup{% endblock %}
+
+{% block content %}
+
+
+
+<div class="container">
+<br><br><br><br>
+
+<div class="row">
+	<aside class="col-sm-4" style="margin:auto;">
+    <p style="font-weight: 500; color:royalblue">Golden Connect supports senior's IT activities. :) </p>
+    <hr>
+    <div class="card">
+      <article class="card-body">
+        <a href="{% url 'login' %}" class="float-right btn btn-outline-primary">Sign in</a>
+        <h4 class="card-title mb-4 mt-1">Sign up</h4>
+        <form>
+          <div class="form-group">
+            <label>Your ID</label>
+            <input name="" class="form-control" placeholder="your id" >
+          </div> <!-- form-group// -->
+          <div class="form-group">
+            <label>Your password</label>
+            <input class="form-control" placeholder="******" type="password">
+          </div> <!-- form-group// --> 
+          <div class="form-group">
+            <label>Your Name or Nickname in site</label>
+            <input name="" class="form-control" placeholder="nickname" >
+          </div> <!-- form-group// -->
+          <div class="form-group">
+            <label>Your Birth</label>
+            <input name="" class="form-control" placeholder="yyyymmdd" >
+          </div> <!-- form-group// -->
+          
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block"> Sign up  </button>
+          </div> <!-- form-group// -->                                                           
+        </form>
+      </article>
+    </div> <!-- card.// -->
+  </aside> <!-- col.// -->
+</div> <!-- row.// -->
+
+</div> 
+<!--container end.//-->
+
+<br><br><br><br>
+
+
+
+
+
+{% endblock %}

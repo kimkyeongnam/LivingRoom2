@@ -19,7 +19,12 @@ from django.urls import path
 import tempApp.views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', tempApp.views.index, name='index'),
-    path('shared/', tempApp.views.shared, name='shared')
+    path('about/', tempApp.views.about, name='about'),
+    path('login/', tempApp.views.login, name='login'),
+    path('signup/', tempApp.views.signup, name='signup'),
+    path('mypage/', tempApp.views.mypage, name='mypage'),
+    path('question/', tempApp.views.question, name='question'),
+    path('solution/', tempApp.views.solution, name='solution'),
+    path('shared/', tempApp.views.shared, name='shared'),
 ]
