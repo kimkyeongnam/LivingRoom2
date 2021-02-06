@@ -19,11 +19,13 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  
+    <script src="{% static 'vendor/flashphoner.js' %}"></script>
+    <script src="{% static 'vendor/screen.sharing.min.js' %}"></script>
+
   </head>
   
 
-  <body>
+  <body onload="init_api()">
     <!-- Navigation -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">

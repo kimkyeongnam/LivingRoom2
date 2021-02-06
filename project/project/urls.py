@@ -21,4 +21,5 @@ import tempApp.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', tempApp.views.index, name='index'),
+    path('shared/', tempApp.views.shared, name='shared')
 ]
