@@ -102,7 +102,14 @@ def solution_detail(request, solution_id):
     return render(request, 'solution_detail.html', {'solution': s_detail})
 
 
-
-
 def shared(request):
     return render(request, 'shared.html')
+
+
+def meilisearch(request):
+    return render(request, 'meilisearch.html')
+
+
+def ask(request):
+    return render(request, 'ask.html')
+

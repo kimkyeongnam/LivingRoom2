@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}-Ask{% endblock %}
+
+{% block content %}
+
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Page Heading/Breadcrumbs -->
+  <h1 class="mt-4 mb-3" style="text-align: right;">Ask
+    <small>Golden Connect's Supporters</small>
+  </h1>
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="{% url 'question' %}">Question</a>
+    </li>
+    <li class="breadcrumb-item active">Ask</li>
+  </ol>
+
+  <div class="row">
+    <!-- Step 1: select topic -->
+    <div class="col-lg-6">
+      <h2>Upload your order</h2><br>
+      <h4 style="color:lightslategray">Step 1. [Essential] Please select a question topic</h4>
+      <br>
+      <p>내용있음 어쨌든 있음 그렇다</p>
+      <br><br>
+    </div>
+
+    <!-- Step 2: time fee -->
+    <div class="col-lg-6">
+      <h4 style="color:lightslategray">Step 2. [Essential] Please select the estimated time required. </h4>
+      <br>
+      <ul>
+        <li>$0.5 per 10min, You can choice rates</li>
+        <li>$0.3 per 10min, If your time is over</li>
+        <li>Less than 10 minutes will be considered 10 minutes if your time is over</li>
+      </ul>
+      <p>내용있음 어쨌든 있음 그렇다</p>
+      <br><br>
+    </div>
+
+    <!-- Step 3: write details -->
+    <div class="col-lg-6">
+      <h4 style="color:lightslategray">Step 3. [Choice] Please Write your own details</h4>
+      <br>
+      <div class="card">
+        <article class="card-body">
+          <form action = "{% url 'question' %}" method="post">
+            <div class="form-group">
+              <label>Please write down what you want to say to the supporters or anything else.</label>
+              <input name="id" class="form-control" placeholder="You can hand it over to the blank." >
+            </div> <!-- form-group// -->
+          </form>
+        </article>
+      </div> <!-- card.// -->
+      <br><br>
+      <button type="submit" class="btn btn-primary btn-block"> Finish  </button>
+      <br><br><br>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  {% endblock %}
+

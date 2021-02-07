@@ -35,4 +35,5 @@ urlpatterns = [
     path('question/<int:question_id>',tempApp.views.question_detail, name='question_detail'),
     path('solution/<int:solution_id>',tempApp.views.solution_detail, name='solution_detail'),
     path('shared/', tempApp.views.shared, name='shared'),
+    path('ask/', tempApp.views.ask, name='ask'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
