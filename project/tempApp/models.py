@@ -15,8 +15,8 @@ class Question(models.Model):
   contents = models.TextField(blank=False, null=False)
   writer = models.ForeignKey('Member', on_delete=models.SET_DEFAULT, default="탈퇴한 회원", db_column='writer')
   pub_datetime = models.DateTimeField(auto_now_add=True)
-  image1 = models.ImageField(upload_to='images/', null=True, blank=True)
-  image2 = models.ImageField(upload_to='images/', null=True, blank=True)
+  image1 = models.ImageField(upload_to='images/', null=True, blank=True, default=None)
+  image2 = models.ImageField(upload_to='images/', null=True, blank=True, default=None)
   fee = models.PositiveIntegerField()
   matching = models.CharField(max_length=30, unique=True, null=True, blank=True, default=None)
 

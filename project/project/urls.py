@@ -32,5 +32,7 @@ urlpatterns = [
     path('mypage/', tempApp.views.mypage, name='mypage'),
     path('question/', tempApp.views.question, name='question'),
     path('solution/', tempApp.views.solution, name='solution'),
+    path('question/<int:question_id>',tempApp.views.question_detail, name='question_detail'),
+    path('solution/<int:solution_id>',tempApp.views.solution_detail, name='solution_detail'),
     path('shared/', tempApp.views.shared, name='shared'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

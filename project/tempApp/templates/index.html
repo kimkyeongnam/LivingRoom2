@@ -46,13 +46,13 @@
         {% if question.matching == None %}
         <div class="col-lg-4 mb-4">
           <div class="card h-100">
-            <h4 class="card-header">{{question.title}}</h4>
+            <h4 class="card-header"><a href="{% url 'question_detail' question.id %}">{{question.title}}</a></h4>
             <div class="card-body" style="min-height: 150px !important;">
               <p class="card-text">{{question.contents}}</p>
             </div>
             <div class="card-footer">
               <div style="color: red; float:left">{{question.pub_datetime}} ago</div>
-              <a href="#" class="btn btn-primary" style="float:right !important;">Match with Me!</a>
+              <a href="{% url 'question_detail' question.id %}" class="btn btn-primary" style="float:right !important;">Match with Me!</a>
             </div>
           </div>
         </div>
@@ -70,10 +70,10 @@
       {% for solution in sols%}
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="#"><video class="card-img-top" preload="metadata" src="{{solution.video.url}}#t=0.5"></video></a>
+          <a href="{% url 'solution_detail' solution.id %}"><video class="card-img-top" preload="metadata" src="{{solution.video.url}}#t=0.5"></video></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="#">{{ solution.title }}</a>
+              <a href="{% url 'solution_detail' solution.id %}">{{ solution.title }}</a>
             </h4>
             <p class="card-text">writer: {{ solution.writer }}</p>
             <p class="card-text">fee: ${{ solution.fee}}</p>

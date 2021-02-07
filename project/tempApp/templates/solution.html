@@ -25,7 +25,7 @@
     <div class="card-body">
       <div class="row">
         <div class="col-lg-6">
-          <a href="#">
+          <a href="{% url 'solution_detail' solution.id %}">
             <video class="img-fluid rounded" preload="metadata" src="{{solution.video.url}}#t=0.5"></video>
           </a>
         </div>
@@ -34,7 +34,7 @@
           <p class="card-text">writer: {{solution.writer}}</p>
           <p class="card-text">posted at: {{solution.pub_datetime}}</p>
           <p class="card-text">fee: ${{solution.fee}}</p>
-          <a href="#" class="btn btn-primary">Watch More &rarr;</a>
+          <a href="{% url 'solution_detail' solution.id %}" class="btn btn-primary">Watch More &rarr;</a>
         </div>
       </div>
     </div>

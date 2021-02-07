@@ -26,13 +26,13 @@
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
           {% if question.image1 %}
-          <a href="#"><img class="card-img-top" src="{{question.image1.url}}" alt=""></a>
+          <a href="{% url 'question_detail' question.id %}"><img class="card-img-top" src="{{question.image1.url}}" alt=""></a>
           {% else %}
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <a href="{% url 'question_detail' question.id %}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
           {% endif %}
           <div class="card-body" style="min-height: 200px !important;">
             <h4 class="card-title">
-              <a href="#">{{question.title}}</a>
+              <a href="{% url 'question_detail' question.id %}">{{question.title}}</a>
             </h4>
             <p class="card-text">{{question.contents}}</p>
           </div>

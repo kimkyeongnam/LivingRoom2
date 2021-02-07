@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}-question{% endblock %}
+
+{% block content %}
+
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">Unresolved Question
+      <small style="color: lightslategray;">you can match!</small>
+    </h1>
+
+    <div class="breadcrumb" style="font-size: large; display:block !important; text-align:center;  ">
+      Title: &nbsp;<span style="font-weight: bold;"> {{question.title}}</span>
+    </div>
+
+    <div class="jumbotron">
+      <p style="float: left; font-size: large; font-weight: bold;">{{question.pub_datetime}}</p>
+      <p style="float: right; font-size: large; font-weight: bold;">writer: {{question.writer}}</p>
+      <div style="clear: both; text-align: center; width: 100%; margin: 100px 0px;">
+        <p style="font-size: large;">{{question.contents}}</p>
+        <table style="width:100%; margin-top:100px;">
+          <tr>
+            <th>
+              {% if question.image1 %}
+              <image src="{{question.image1.url}}" ></image>
+              <p>image 1</p>
+              {% endif %}
+            </th>
+            <th>
+              {% if question.image2 %}
+              <image src="{{question.image2.url}}" style="width: 80%;"></image>
+              <p>image 2</p>
+              {% endif %}
+            </th>
+          </tr>
+        </table>
+      </div>
+      <p style="text-align: center; font-size: x-large; font-weight: bold;">fee: ${{question.fee}}</p>
+      <div style="text-align: center; margin:50px 0px;">
+        <a href="{% url 'shared' %}" class="btn btn-primary">Match with Me!</a>
+      </div>
+      
+    </div>
+    <!-- /.jumbotron -->
+
+  </div>
+  <!-- /.container -->
+
+
+
+
+
+{% endblock %}

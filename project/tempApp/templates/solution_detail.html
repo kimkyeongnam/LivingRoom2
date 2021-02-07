@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}-solution{% endblock %}
+
+{% block content %}
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">Solution Board
+      <small>you can find every questions and answer video!</small>
+    </h1>
+
+    <div class="breadcrumb" style="font-size: large; display:block !important; text-align:center;  ">
+      Title: &nbsp;<span style="font-weight: bold;"> {{solution.title}}</span>
+    </div>
+
+    <div class="jumbotron">
+      <p style="float: left; font-size: large; font-weight: bold;">{{solution.pub_datetime}}</p>
+      <p style="float: right; font-size: large; font-weight: bold;">writer: {{solution.writer}}</p>
+      <div style="clear: both; text-align: center; width: 100%; margin: 100px 0px;">
+        <video controls src="{{solution.video.url}}" style="width: 80%;"></video>
+      </div>
+      <p style="text-align: center; font-size: x-large; font-weight: bold;">fee: ${{solution.fee}}</p>
+      
+    </div>
+    <!-- /.jumbotron -->
+
+  </div>
+  <!-- /.container -->
+
+
+
+{% endblock %}
