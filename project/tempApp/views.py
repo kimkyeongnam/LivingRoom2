@@ -93,9 +93,11 @@ def solution(request):
     solutions = Solution.objects
     return render(request, 'solution.html', {'solutions': solutions})
 
+
 def question_detail(request, question_id):
     q_detail = get_object_or_404(Question, pk=question_id)
     return render(request, 'question_detail.html', {'question': q_detail})
+
 
 def solution_detail(request, solution_id):
     s_detail = get_object_or_404(Solution, pk=solution_id)

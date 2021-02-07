@@ -25,26 +25,67 @@
       <h2>Upload your order</h2><br>
       <h4 style="color:lightslategray">Step 1. [Essential] Please select a question topic</h4>
       <br>
-      <p>내용있음 어쨌든 있음 그렇다</p>
+      <p>You must fill this section.</p>
+      <div class="col-sm-12" style="margin-bottom: 10px; display: flex; align-items: center; justify-content: center;">
+        <div class="pull-left">
+          <button id="hw" style="width: 200px; margin-right: 10px;" class="btn btn-success"><i class="fa fa-book fa-fw" aria-hidden="true"></i> HardWare(HW) Error </button>
+        </div>
+        <div class="">
+          <button id="sw" style="width: 200px;" class="btn btn-success"><i class="fa fa-book fa-fw" aria-hidden="true"></i> SofWare(SW) Error </button>
+        </div>
+      </div>
+      <div class="col-sm-12" style="margin-bottom: 10px; display: flex; align-items: center; justify-content: center;">
+        <div class="pull-left">
+          <button id="use" style="width: 200px; margin-right: 10px;" class="btn btn-primary"><i class="fa fa-book fa-fw" aria-hidden="true"></i> How to Use </button>
+        </div>
+        <div class="">
+          <button id="etc" style="width: 200px;" class="btn btn-secondary"><i class="fa fa-book fa-fw" aria-hidden="true"></i> Etc </button>
+        </div>
+      </div>
       <br><br>
     </div>
 
-    <!-- Step 2: time fee -->
+    <!-- Step 2: upload image files -->
     <div class="col-lg-6">
-      <h4 style="color:lightslategray">Step 2. [Essential] Please select the estimated time required. </h4>
+      <h4 style="color:lightslategray">Step 2. [Choice] Please upload your images. </h4>
       <br>
+      <p>You can hand it over to the blank.</p>
+      <input type="file" id="real-input" class="image_inputType_file" accept="img/*" required multiple>
+      <!--      <button class="browse-btn">사진업로드</button>-->
+      <!--        <div id="imagePreview">-->
+      <!--          <img id="img" />-->
+      <!--        </div>-->
+      <br><br><br><br>
+    </div>
+
+    <!-- Step 3: time fee -->
+    <div class="col-lg-6">
+      <h4 style="color:lightslategray">Step 3. [Essential] Please select the estimated time required. </h4>
+      <br>
+      <p style="display: inline-block;">You must fill this section.</p>
       <ul>
         <li>$0.5 per 10min, You can choice rates</li>
         <li>$0.3 per 10min, If your time is over</li>
         <li>Less than 10 minutes will be considered 10 minutes if your time is over</li>
       </ul>
-      <p>내용있음 어쨌든 있음 그렇다</p>
+      <select class = 'fee-select'>
+        <option value="1">$1</option>
+        <option value="2">$2</option>
+        <option value="3">$3</option>
+        <option value="4">$4</option>
+        <option value="5">$5</option>
+        <option value="6">$6</option>
+        <option value="7">$7</option>
+        <option value="8">$8</option>
+        <option value="9">$9</option>
+        <option value="10">$10</option>
+      </select>
       <br><br>
     </div>
 
-    <!-- Step 3: write details -->
+    <!-- Step 4: write details -->
     <div class="col-lg-6">
-      <h4 style="color:lightslategray">Step 3. [Choice] Please Write your own details</h4>
+      <h4 style="color:lightslategray">Step 4. [Choice] Please Write your own details</h4>
       <br>
       <div class="card">
         <article class="card-body">
@@ -57,7 +98,7 @@
         </article>
       </div> <!-- card.// -->
       <br><br>
-      <button type="submit" class="btn btn-primary btn-block"> Finish  </button>
+      <button type="submit" class="btn btn-primary btn-block"> Finish </button>
       <br><br><br>
     </div>
     <!-- /.row -->
@@ -66,4 +107,3 @@
   <!-- /.container -->
 
   {% endblock %}
-
